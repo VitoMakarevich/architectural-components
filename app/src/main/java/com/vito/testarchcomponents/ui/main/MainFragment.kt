@@ -29,15 +29,11 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         viewModel.getUsers().observe(this, Observer<List<Book>> {
-            books -> textView.setText(books?.get(0)?.name)
+            books ->
+            textView.text = books?.get(0)?.name
         })
 
         return view
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
     }
 
 }

@@ -7,7 +7,7 @@ import rx.Observable
 import rx.lang.kotlin.toObservable
 import java.util.concurrent.TimeUnit
 
-class BookRepository {
+class Repository {
 
 
     fun loadBooks(): Observable<List<Book>> {

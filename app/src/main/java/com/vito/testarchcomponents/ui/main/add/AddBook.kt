@@ -2,6 +2,7 @@ package com.vito.testarchcomponents.ui.main.add
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.vito.testarchcomponents.R
 import com.vito.testarchcomponents.ui.main.add.ui.addbook.AddBookFragment
 
 class AddBook : AppCompatActivity() {

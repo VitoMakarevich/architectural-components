@@ -5,25 +5,20 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.vito.testarchcomponents.BookApplication
 import com.vito.testarchcomponents.model.Book
-import com.vito.testarchcomponents.repositories.BookRepository
+import com.vito.testarchcomponents.repositories.Repository
 import rx.Subscriber
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class MainViewModel : ViewModel() {
 
     @Inject
-    lateinit var bookRepository: BookRepository
+    lateinit var repository: Repository
 
     init {
-        BookApplication.bookRepositoryComponent.inject(this)
+        BookApplication.appComponent.inject(this)
     }
 
-
     private lateinit var books: MutableLiveData<List<Book>>
-
-
-
 
     fun getUsers(): LiveData<List<Book>> {
         if (!::books.isInitialized) {
@@ -34,7 +29,7 @@ class MainViewModel : ViewModel() {
     }
 
     private fun loadUsers() {
-        bookRepository.loadBooks().subscribe(
+        repository.loadBooks().subscribe(
             object : Subscriber<List<Book>>() {
                 override fun onCompleted() {
                 }
