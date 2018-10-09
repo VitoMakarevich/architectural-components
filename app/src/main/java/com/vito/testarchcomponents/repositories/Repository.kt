@@ -2,24 +2,19 @@ package com.vito.testarchcomponents.repositories
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
+import com.vito.testarchcomponents.api.BooksApi
 import com.vito.testarchcomponents.model.Book
-import rx.Observable
-import rx.lang.kotlin.toObservable
+import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
-class Repository {
+class Repository(val api: BooksApi) {
 
 
-    fun loadBooks(): Observable<List<Book>> {
-
-        return Observable
-            .range(1, 5)
-            .concatMap { i -> Observable.just(i).delay (1000, TimeUnit.MILLISECONDS) }
-            .map { i -> Book(i.toInt(), i.toString()) }
-            .toList()
-
-
-
-
+    fun loadBooksSell(): Single<List<Book>> {
+        return api.getBooks()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
     }
 }

@@ -1,3 +1,3 @@
 package com.vito.testarchcomponents.model
 
-class Book(val id: Int, val name: String)
+class Book(val _id: String, val name: String)

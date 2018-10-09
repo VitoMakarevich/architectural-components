@@ -4,6 +4,7 @@ package com.vito.testarchcomponents
 import android.app.Application
 import com.vito.testarchcomponents.components.AppComponent
 import com.vito.testarchcomponents.components.DaggerAppComponent
+import com.vito.testarchcomponents.modules.ContextModule
 import com.vito.testarchcomponents.modules.RepositoryModule
 import com.vito.testarchcomponents.repositories.Repository
 
@@ -24,6 +25,7 @@ class BookApplication: Application() {
         appComponent = DaggerAppComponent
             .builder()
             .repositoryModule(RepositoryModule())
+            .contextModule(ContextModule(this))
             .build()
     }
 }
