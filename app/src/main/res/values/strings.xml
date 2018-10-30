@@ -3,4 +3,10 @@
     <string name="Buy">Buy</string>
     <string name="Exchange">Exchange</string>
     <string name="Sell">Sell</string>
+    <string name="addBookDescription">Description</string>
+    <string name="addBookName">Name</string>
+    <string name="addBook">Add</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

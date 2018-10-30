@@ -17,4 +17,16 @@ class Repository(val api: BooksApi) {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
+
+    fun createBookSell(book: Book): Single<Book> {
+        return api.createSellBook(book)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun loadSellBook(id: String): Single<Book> {
+        return api.getSellBook(id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
 }

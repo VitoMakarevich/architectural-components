@@ -10,6 +10,7 @@ import com.vito.testarchcomponents.repositories.Repository
 import io.reactivex.Observable
 import io.reactivex.Single
 import java.util.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class BookListViewModel : ViewModel() {
@@ -21,14 +22,19 @@ class BookListViewModel : ViewModel() {
         MutableLiveData<List<Book>>()
     }
 
+    val booksErrors: MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
+
     init {
         BookApplication.appComponent.inject(this)
     }
 
     fun loadBooks() {
-        repository.loadBooksSell().subscribe(
+        repository.loadBooksSell()
+                .subscribe(
             { books.value = it },
-            { Log.d("error", it.message)}
+            { booksErrors.value = it.message}
         )
     }
 }
