@@ -2,11 +2,13 @@ package com.vito.testarchcomponents.ui.main.add
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.constraint.Placeholder
 import android.support.design.widget.Snackbar
 import android.view.View
+import com.vito.testarchcomponents.MainActivity
 import com.vito.testarchcomponents.R
 import com.vito.testarchcomponents.common.LoadingFragment
 import com.vito.testarchcomponents.ui.main.add.ui.addbook.AddBookFragment
@@ -58,6 +60,11 @@ class AddBook : AppCompatActivity() {
         viewModel.addRequestError.observe(this, Observer {
              if(it != null)
                  showError()
+
+        })
+
+        viewModel.addRequest.observe(this, Observer {
+            startActivity(Intent(this, MainActivity::class.java))
 
         })
 

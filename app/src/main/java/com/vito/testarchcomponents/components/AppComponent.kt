@@ -8,8 +8,6 @@ import com.vito.testarchcomponents.modules.RepositoryModule
 import com.vito.testarchcomponents.repositories.Repository
 import com.vito.testarchcomponents.ui.main.add.ui.addbook.AddBookViewModel
 import com.vito.testarchcomponents.ui.main.sellbook.SellBookViewModel
-import com.vito.testarchcomponents.ui.main.viewTabs.BookTabsPagerAdapter
-import com.vito.testarchcomponents.ui.main.viewTabs.MainViewModel
 import com.vito.testarchcomponents.ui.main.viewTabs.list.BookListViewModel
 import dagger.Component
 
@@ -20,8 +18,6 @@ interface AppComponent {
     fun getContext(): Context
 
     fun getFirebaseAuth(): FirebaseAuth
-
-    fun inject(tabsPagerAdapter: BookTabsPagerAdapter)
     fun inject(bookListViewModel: BookListViewModel)
     fun inject(addBookViewModel: AddBookViewModel)
     fun inject(viewSellBookViewModel: SellBookViewModel)

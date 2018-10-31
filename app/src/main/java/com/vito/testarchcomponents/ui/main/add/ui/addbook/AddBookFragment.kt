@@ -45,12 +45,6 @@ class AddBookFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProviders.of(activity!!).get(AddBookViewModel::class.java)
-
-        viewModel.addRequest.observe(activity!!,  Observer<Book> {
-            startActivity(Intent(activity, MainActivity::class.java))
-        })
-
-
     }
 
 }
